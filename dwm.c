@@ -2664,6 +2664,7 @@ bstackhoriz(Monitor *m) {
 				ty += HEIGHT(c);
 		}
 	}
+}
 
 void
 focusmaster(const Arg *arg)
