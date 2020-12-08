@@ -273,6 +273,8 @@ static void zoom(const Arg *arg);
 static void bstack(Monitor *m);
 static void bstackhoriz(Monitor *m);
 
+static void focusmaster(const Arg *arg);
+
 /* variables */
 static Systray *systray =  NULL;
 static const char broken[] = "broken";
@@ -2662,4 +2664,17 @@ bstackhoriz(Monitor *m) {
 				ty += HEIGHT(c);
 		}
 	}
+
+void
+focusmaster(const Arg *arg)
+{
+	Client *c;
+
+	if (selmon->nmaster < 1)
+		return;
+
+	c = nexttiled(selmon->clients);
+
+	if (c)
+		focus(c);
 }
